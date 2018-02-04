@@ -75,9 +75,9 @@ ref.on('value', function(snapshot) {
    var data = snapshot.val();
    var keys = Object.keys(data);
    var dict = [];
-
+   updateComprehensionScore(data);
    for (var i=0; i < keys.length; i++) {
-      var score = data[keys[i]].score;
+      var score = data[keys[i]].value;
       count.push(i);
       scores.push(score);
    }
@@ -98,7 +98,32 @@ ref.on('value', function(snapshot) {
    //Plotly.addTraces(TESTER, {y: [2,1,2]});
    count = [];
    scores = [];
-
-
    //console.log(newTrace);
 });
+
+function calculateComprehension(data) {
+   var keys = Object.keys(data);
+   var dict = [];
+   var average = 0;
+
+   for (var i=0; i < keys.length; i++) {
+      var value = data[keys[i]].value;
+      var name = data[keys[i]].name;
+      if (name == "happy") {
+         average += 0.5*(value*100);
+      } else if (name == "sad") {
+         average += -0.5*(value*100);
+      } else {
+         if (name == "neutral") {
+            average += -0.3*(value*100);
+         } else {
+            average += 0.3*(value*100);
+         }
+      }
+   }
+   return average;
+}
+
+function updateComprehensionScore(data) {
+   document.getElementById("comprehension").innerHTML = calculateComprehension(data).toFixed(3);
+}
