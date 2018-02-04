@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Clicker+Script');
+
+html, body {
+  background: #efefef;
+  color: #555;
+}
+
+.navbar {
+  background: white;
+  margin: 0 0 20px 0;
+  box-shadow: 5px 5px 10px rgba(0,0,0,.05);
+}
+
+.spaced {
+  padding: 10px;
+}
+
+#tester {
+  width: 100%;
+  height: auto;
+
+}
+
+.card {
+  box-shadow: 5px 5px 10px rgba(0,0,0,.05);
+  min-height: 150px;
+}
+
+.top-metrics .fa-w-10 {
+    width: .45em;
+}
+
+.middle-metrics .card {
+  min-height: 300px;
+}
+
+.bottom-metrics .card {
+  min-height: 300px;
+}
+
+.mobile-show {
+  display:none;
+}
+
+.mobile-hide {
+  display:block;
+}
+
+@media only screen and (max-width: 992px) {
+  .mobile-show {
+    display: block;
+  }
+
+  .mobile-hide {
+    display:none;
+  }
+}
+
+.no-overflow{
+  overflow: hidden;
+}
+
+.border-radius {
+  border-radius: 1000px;
+}
+
+footer {
+  background: #222;
+  padding: 25px 0;
+}
